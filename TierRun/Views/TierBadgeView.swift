@@ -73,8 +73,9 @@ struct TierBadgeView: View {
                 ProgressView(value: tier.progressToNextTier)
                     .tint(tierColor)
                     .scaleEffect(x: 1, y: 2, anchor: .center)
-                
-                Text("Top \(String(format: "%.1f", rankPercentage))%")
+
+
+                Text(L10n.Tier.top(String(format: "%.1f", rankPercentage)))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }

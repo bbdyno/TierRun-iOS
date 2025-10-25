@@ -32,11 +32,11 @@ struct TitlesView: View {
                         Button(role: .destructive) {
                             viewModel.unequipTitle()
                         } label: {
-                            Text("Unequip Title")
+                            Text(L10n.Titles.unequip)
                                 .frame(maxWidth: .infinity)
                         }
                     } header: {
-                        Text("Equipped")
+                        Text(L10n.Titles.equipped)
                     }
                 }
                 
@@ -51,7 +51,7 @@ struct TitlesView: View {
                             }
                         }
                     } header: {
-                        Text("Unlocked Titles")
+                        Text(L10n.Titles.unlocked)
                     }
                 }
                 
@@ -62,15 +62,15 @@ struct TitlesView: View {
                                 .opacity(0.5)
                         }
                     } header: {
-                        Text("Locked Titles")
+                        Text(L10n.Titles.locked)
                     }
                 }
             }
-            .navigationTitle("Titles")
+            .navigationTitle(L10n.Titles.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") {
+                    Button(L10n.Common.done) {
                         dismiss()
                     }
                 }
@@ -106,7 +106,7 @@ struct TitleRow: View {
                     .foregroundStyle(.secondary)
                 
                 if !title.isUnlocked {
-                    Text("Requirement: \(title.requirement)")
+                    Text(L10n.Titles.requirement(title.requirement))
                         .font(.caption2)
                         .foregroundStyle(.tertiary)
                 }

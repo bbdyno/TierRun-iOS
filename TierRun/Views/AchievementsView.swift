@@ -24,7 +24,7 @@ struct AchievementsView: View {
         NavigationStack {
             VStack(spacing: 0) {
                 // Category Picker
-                Picker("Category", selection: $selectedCategory) {
+                Picker(L10n.Achievements.category, selection: $selectedCategory) {
                     ForEach([AchievementCategory.distance, .frequency, .streak, .speed, .special], id: \.self) { category in
                         Text(category.rawValue.capitalized).tag(category)
                     }
@@ -45,11 +45,11 @@ struct AchievementsView: View {
                     .padding()
                 }
             }
-            .navigationTitle("Achievements")
+            .navigationTitle(L10n.Achievements.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") {
+                    Button(L10n.Common.done) {
                         dismiss()
                     }
                 }
@@ -91,8 +91,9 @@ struct AchievementCard: View {
                 ProgressView(value: achievement.progress)
                     .tint(achievement.rarity.color)
                     .scaleEffect(x: 1, y: 0.5)
-                
-                Text("\(Int(achievement.progress * 100))%")
+
+
+                Text(L10n.Achievements.progress(Int(achievement.progress * 100)))
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             } else if let date = achievement.unlockedAt {

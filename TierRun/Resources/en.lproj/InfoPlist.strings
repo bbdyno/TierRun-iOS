@@ -1,0 +1,19 @@
+/*
+  InfoPlist.strings (English)
+  TierRun
+*/
+
+// App Name
+"CFBundleDisplayName" = "TierRun";
+"CFBundleName" = "TierRun";
+
+// Privacy - Health
+"NSHealthShareUsageDescription" = "TierRun analyzes your running data to calculate your tier.";
+"NSHealthUpdateUsageDescription" = "TierRun records your workout data.";
+
+// Privacy - Location
+"NSLocationWhenInUseUsageDescription" = "We need your location to track your running route.";
+"NSLocationAlwaysUsageDescription" = "We need your location to track your running route even when the app is in the background.";
+
+// Privacy - Photos
+"NSPhotoLibraryAddUsageDescription" = "We need access to your photo library to save the generated certificates.";

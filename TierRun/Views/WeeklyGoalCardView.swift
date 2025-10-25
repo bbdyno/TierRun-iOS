@@ -14,15 +14,15 @@ struct WeeklyGoalCardView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Weekly Goal")
+            Text(L10n.WeeklyGoal.title)
                 .font(.headline)
-            
+
             // Progress
             HStack {
-                Text("\(progress.completedRuns) / \(progress.targetRuns) runs")
+                Text(L10n.WeeklyGoal.runsProgress(progress.completedRuns, progress.targetRuns))
                     .font(.title2)
                     .fontWeight(.bold)
-                
+
                 Spacer()
             }
             
@@ -34,15 +34,13 @@ struct WeeklyGoalCardView: View {
             HStack(spacing: 20) {
                 WeeklyStatItem(
                     value: String(format: "%.1f km", progress.totalDistance),
-                    label: "Distance"
-                )
-                
+                    label: L10n.Running.distance                )
+
                 Spacer()
-                
+
                 WeeklyStatItem(
                     value: "+\(progress.totalLP) LP",
-                    label: "This Week"
-                )
+                    label: L10n.WeeklyGoal.thisWeek                )
             }
         }
         .padding()

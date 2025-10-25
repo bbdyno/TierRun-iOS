@@ -23,22 +23,24 @@ struct CertificateGeneratorView: View {
     @State private var generatedImage: UIImage?
     @State private var showingShareSheet = false
     @State private var showingSaveAlert = false
+    @State private var showingPermissionDeniedAlert = false
+    @State private var showingSaveFailedAlert = false
     @State private var isGenerating = false
     
     let templates = [
         CertificateTemplate(
-            name: "Classic",
-            templateDescription: "Clean and elegant design",
+            name: L10n.Certificate.classic,
+            templateDescription: L10n.Certificate.classicDesc,
             previewImage: "certificate.classic"
         ),
         CertificateTemplate(
-            name: "Modern",
-            templateDescription: "Bold and contemporary",
+            name: L10n.Certificate.modern,
+            templateDescription: L10n.Certificate.modernDesc,
             previewImage: "certificate.modern"
         ),
         CertificateTemplate(
-            name: "Minimal",
-            templateDescription: "Simple and refined",
+            name: L10n.Certificate.minimal,
+            templateDescription: L10n.Certificate.minimalDesc,
             previewImage: "certificate.minimal"
         )
     ]
@@ -66,11 +68,11 @@ struct CertificateGeneratorView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Create Certificate")
+            .navigationTitle(L10n.Certificate.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancel") {
+                    Button(L10n.Common.cancel) {
                         dismiss()
                     }
                 }
@@ -83,17 +85,32 @@ struct CertificateGeneratorView: View {
                     ShareSheet(items: [image])
                 }
             }
-            .alert("Saved!", isPresented: $showingSaveAlert) {
-                Button("OK", role: .cancel) { }
+            .alert(L10n.Certificate.saved, isPresented: $showingSaveAlert) {
+                Button(L10n.Common.ok, role: .cancel) { }
             } message: {
-                Text("Certificate saved to your photo library")
+                Text(L10n.Certificate.savedMessage)
+            }
+            .alert(L10n.Certificate.permissionDenied, isPresented: $showingPermissionDeniedAlert) {
+                Button(L10n.Common.ok, role: .cancel) { }
+                Button(L10n.Settings.title) {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
+                }
+            } message: {
+                Text(L10n.Certificate.permissionDeniedMessage)
+            }
+            .alert(L10n.Certificate.saveFailed, isPresented: $showingSaveFailedAlert) {
+                Button(L10n.Common.ok, role: .cancel) { }
+            } message: {
+                Text(L10n.Certificate.saveFailedMessage)
             }
         }
     }
     
     private var previewSection: some View {
         VStack(spacing: 12) {
-            Text("Preview")
+            Text(L10n.Certificate.preview)
                 .font(.headline)
             
             ZStack {
@@ -116,7 +133,7 @@ struct CertificateGeneratorView: View {
                                         .font(.largeTitle)
                                         .foregroundStyle(.secondary)
                                     
-                                    Text("Preview will appear here")
+                                    Text(L10n.Certificate.previewPlaceholder)
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
@@ -134,7 +151,7 @@ struct CertificateGeneratorView: View {
                             .tint(.white)
                     } else {
                         Image(systemName: "sparkles")
-                        Text("Generate Preview")
+                        Text(L10n.Certificate.generatePreview)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -149,7 +166,7 @@ struct CertificateGeneratorView: View {
     
     private var templateSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Template")
+            Text(L10n.Certificate.template)
                 .font(.headline)
             
             ScrollView(.horizontal, showsIndicators: false) {
@@ -171,26 +188,26 @@ struct CertificateGeneratorView: View {
     
     private var customizationSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Customization")
+            Text(L10n.Certificate.customization)
                 .font(.headline)
-            
+
             VStack(spacing: 12) {
                 // Background Color
                 HStack {
-                    Text("Background Color")
+                    Text(L10n.Certificate.backgroundColor)
                     Spacer()
                     ColorPicker("", selection: $customization.backgroundColor)
                 }
-                
+
                 Divider()
-                
+
                 // Pattern
-                Toggle("Show Pattern", isOn: $customization.showPattern)
-                
+                Toggle(L10n.Certificate.showPattern, isOn: $customization.showPattern)
+
                 Divider()
-                
+
                 // QR Code
-                Toggle("Include QR Code", isOn: $customization.includeQRCode)
+                Toggle(L10n.Certificate.includeQR, isOn: $customization.includeQRCode)
             }
             .padding()
             .background(Color(.secondarySystemBackground))
@@ -205,7 +222,7 @@ struct CertificateGeneratorView: View {
             } label: {
                 HStack {
                     Image(systemName: "square.and.arrow.down")
-                    Text("Save to Photos")
+                    Text(L10n.Certificate.saveToPhotos)
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -220,7 +237,7 @@ struct CertificateGeneratorView: View {
             } label: {
                 HStack {
                     Image(systemName: "square.and.arrow.up")
-                    Text("Share")
+                    Text(L10n.Common.share)
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -258,12 +275,49 @@ struct CertificateGeneratorView: View {
     
     private func saveToPhotos() {
         guard let image = generatedImage else { return }
-        
-        PHPhotoLibrary.requestAuthorization { status in
-            if status == .authorized {
-                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+
+        // Check current authorization status
+        let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
+
+        switch status {
+        case .authorized, .limited:
+            // Permission granted, save the image
+            saveImageToLibrary(image)
+
+        case .notDetermined:
+            // Request permission
+            PHPhotoLibrary.requestAuthorization(for: .addOnly) { newStatus in
                 DispatchQueue.main.async {
+                    if newStatus == .authorized || newStatus == .limited {
+                        self.saveImageToLibrary(image)
+                    } else {
+                        self.showingPermissionDeniedAlert = true
+                    }
+                }
+            }
+
+        case .denied, .restricted:
+            // Permission denied, show alert
+            DispatchQueue.main.async {
+                showingPermissionDeniedAlert = true
+            }
+
+        @unknown default:
+            DispatchQueue.main.async {
+                showingPermissionDeniedAlert = true
+            }
+        }
+    }
+
+    private func saveImageToLibrary(_ image: UIImage) {
+        PHPhotoLibrary.shared().performChanges {
+            PHAssetChangeRequest.creationRequestForAsset(from: image)
+        } completionHandler: { success, error in
+            DispatchQueue.main.async {
+                if success {
                     showingSaveAlert = true
+                } else {
+                    showingSaveFailedAlert = true
                 }
             }
         }

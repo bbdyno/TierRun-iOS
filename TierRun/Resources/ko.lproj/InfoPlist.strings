@@ -1,0 +1,19 @@
+/*
+  InfoPlist.strings (Korean)
+  TierRun
+*/
+
+// App Name
+"CFBundleDisplayName" = "티어런";
+"CFBundleName" = "티어런";
+
+// Privacy - Health
+"NSHealthShareUsageDescription" = "티어런은 러닝 데이터를 분석하여 티어를 계산합니다.";
+"NSHealthUpdateUsageDescription" = "티어런은 운동 데이터를 기록합니다.";
+
+// Privacy - Location
+"NSLocationWhenInUseUsageDescription" = "러닝 경로를 기록하기 위해 위치 정보가 필요합니다.";
+"NSLocationAlwaysUsageDescription" = "백그라운드에서도 러닝 경로를 기록하기 위해 위치 정보가 필요합니다.";
+
+// Privacy - Photos
+"NSPhotoLibraryAddUsageDescription" = "생성한 인증서를 앨범에 저장하기 위해 사진 라이브러리 접근 권한이 필요합니다.";

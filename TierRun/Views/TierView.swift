@@ -43,7 +43,7 @@ struct TierView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Tier")
+            .navigationTitle(L10n.Tier.title)
             .onAppear {
                 if viewModel == nil {
                     viewModel = TierViewModel(modelContext: modelContext)
@@ -61,25 +61,25 @@ struct TierView: View {
     }
     
     private func rolePicker(vm: TierViewModel) -> some View {
-        Picker("Role", selection: Binding(
+        Picker(L10n.Role.title, selection: Binding(
             get: { vm.selectedRole },
             set: { _ in vm.switchRole() }
         )) {
-            Text("Marathoner").tag(RunRole.marathoner)
-            Text("Sprinter").tag(RunRole.sprinter)
+            Text(L10n.Role.marathoner).tag(RunRole.marathoner)
+            Text(L10n.Role.sprinter).tag(RunRole.sprinter)
         }
         .pickerStyle(.segmented)
     }
     
     private func tierStatsView(stats: TierStats) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("LP Stats")
+            Text(L10n.Tier.lpStats)
                 .font(.headline)
-            
+
             HStack(spacing: 16) {
-                StatBox(title: "This Week", value: "+\(stats.weeklyLP) LP")
-                StatBox(title: "This Month", value: "+\(stats.monthlyLP) LP")
-                StatBox(title: "This Season", value: "+\(stats.seasonLP) LP")
+                StatBox(title: L10n.Tier.thisWeek, value: "+\(stats.weeklyLP) LP")
+                StatBox(title: L10n.Tier.thisMonth, value: "+\(stats.monthlyLP) LP")
+                StatBox(title: L10n.Tier.thisSeason, value: "+\(stats.seasonLP) LP")
             }
         }
     }
@@ -91,7 +91,7 @@ struct TierView: View {
             } label: {
                 HStack {
                     Image(systemName: "rosette")
-                    Text("Create Tier Certificate")
+                    Text(L10n.Tier.createCertificate)
                     Spacer()
                 }
                 .padding()
@@ -100,11 +100,11 @@ struct TierView: View {
                 .foregroundStyle(.white)
                 .cornerRadius(12)
             }
-            
+
             NavigationLink(destination: TierSystemInfoView()) {
                 HStack {
                     Image(systemName: "info.circle")
-                    Text("Learn About Tier System")
+                    Text(L10n.Tier.learnMore)
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
@@ -118,11 +118,11 @@ struct TierView: View {
     
     private func tierHistoryView(history: [TierHistoryEntry]) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Tier History")
+            Text(L10n.Tier.history)
                 .font(.headline)
-            
+
             if history.isEmpty {
-                Text("No tier history yet")
+                Text(L10n.Tier.noHistory)
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding()

@@ -50,15 +50,15 @@ struct ActivityDetailView: View {
             }
             .padding()
         }
-        .navigationTitle("Run Details")
+        .navigationTitle(L10n.Activity.runDetails)
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Reclassify Run", isPresented: $showingReclassifyAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("Reclassify") {
+        .alert(L10n.Activity.reclassifyTitle, isPresented: $showingReclassifyAlert) {
+            Button(L10n.Common.cancel, role: .cancel) { }
+            Button(L10n.Activity.reclassify) {
                 reclassifyRun()
             }
         } message: {
-            Text("Change this run to \(run.role == .marathoner ? "Sprinter" : "Marathoner")? LP will be recalculated.")
+            Text(L10n.Activity.reclassifyMessage(run.role == .marathoner ? L10n.Role.sprinter : L10n.Role.marathoner))
         }
     }
     
@@ -69,7 +69,7 @@ struct ActivityDetailView: View {
                     .font(.title3)
                     .foregroundStyle(roleColor)
                 
-                Text(run.role == .marathoner ? "Marathoner" : "Sprinter")
+                Text(run.role == .marathoner ? L10n.Role.marathoner : L10n.Role.sprinter)
                     .font(.headline)
                     .foregroundStyle(roleColor)
                 
@@ -94,7 +94,7 @@ struct ActivityDetailView: View {
                 Text(String(format: "%.2f", run.distance))
                     .font(.system(size: 56, weight: .bold, design: .rounded))
                 
-                Text("km")
+                Text(L10n.Unit.km)
                     .font(.title2)
                     .foregroundStyle(.secondary)
             }
@@ -106,7 +106,7 @@ struct ActivityDetailView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    Text("Time")
+                    Text(L10n.Running.time)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -116,7 +116,7 @@ struct ActivityDetailView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    Text("Pace")
+                    Text(L10n.Running.pace)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -143,7 +143,7 @@ struct ActivityDetailView: View {
     
     private var mapSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Route")
+            Text(L10n.Activity.route)
                 .font(.headline)
             
             Map(initialPosition: .automatic) {
@@ -160,7 +160,7 @@ struct ActivityDetailView: View {
                 
                 // Start marker
                 if let first = run.route.first {
-                    Annotation("Start", coordinate: CLLocationCoordinate2D(
+                    Annotation(L10n.Activity.start, coordinate: CLLocationCoordinate2D(
                         latitude: first.latitude,
                         longitude: first.longitude
                     )) {
@@ -172,7 +172,7 @@ struct ActivityDetailView: View {
                 
                 // End marker
                 if let last = run.route.last {
-                    Annotation("End", coordinate: CLLocationCoordinate2D(
+                    Annotation(L10n.Activity.end, coordinate: CLLocationCoordinate2D(
                         latitude: last.latitude,
                         longitude: last.longitude
                     )) {
@@ -189,26 +189,26 @@ struct ActivityDetailView: View {
     
     private var heartRateSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Heart Rate")
+            Text(L10n.Activity.heartRate)
                 .font(.headline)
             
             HStack(spacing: 20) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Average")
+                    Text(L10n.Activity.average)
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    
-                    Text("\(run.averageHeartRate) bpm")
+
+                    Text("\(run.averageHeartRate) \(L10n.Unit.bpm)")
                         .font(.title3)
                         .fontWeight(.semibold)
                 }
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Maximum")
+                    Text(L10n.Activity.maximum)
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    
-                    Text("\(run.maxHeartRate) bpm")
+
+                    Text("\(run.maxHeartRate) \(L10n.Unit.bpm)")
                         .font(.title3)
                         .fontWeight(.semibold)
                 }
@@ -219,18 +219,18 @@ struct ActivityDetailView: View {
             // Heart Rate Zones
             if !run.heartRateZones.isEmpty {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Time in Zones")
+                    Text(L10n.Activity.timeInZones)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
                     ForEach(Array(run.heartRateZones.keys.sorted()), id: \.self) { zone in
                         if let time = run.heartRateZones[zone] {
                             HStack {
-                                Text("Zone \(zone)")
+                                Text(L10n.Activity.zone(zone))
                                     .font(.caption)
-                                
+
                                 Spacer()
-                                
+
                                 Text(formatDuration(time))
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
@@ -247,7 +247,7 @@ struct ActivityDetailView: View {
     
     private var splitsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Splits")
+            Text(L10n.Activity.splits)
                 .font(.headline)
             
             ForEach(Array(run.splits.enumerated()), id: \.offset) { index, split in
@@ -277,7 +277,7 @@ struct ActivityDetailView: View {
     
     private var additionalDataSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Additional Data")
+            Text(L10n.Activity.additionalData)
                 .font(.headline)
             
             LazyVGrid(columns: [
@@ -286,20 +286,20 @@ struct ActivityDetailView: View {
             ], spacing: 16) {
                 DataItem(
                     icon: "flame.fill",
-                    label: "Calories",
+                    label: L10n.Running.calories,
                     value: "\(run.calories)"
                 )
-                
+
                 DataItem(
                     icon: "figure.run",
-                    label: "Cadence",
-                    value: "\(run.cadence) spm"
+                    label: L10n.Running.cadence,
+                    value: "\(run.cadence) \(L10n.Unit.spm)"
                 )
-                
+
                 DataItem(
                     icon: "arrow.up.right",
-                    label: "Elevation",
-                    value: String(format: "%.0f m", run.elevationGain)
+                    label: L10n.Running.elevation,
+                    value: String(format: "%.0f \(L10n.Unit.m)", run.elevationGain)
                 )
             }
         }
@@ -315,7 +315,7 @@ struct ActivityDetailView: View {
             } label: {
                 HStack {
                     Image(systemName: "arrow.triangle.2.circlepath")
-                    Text("Reclassify as \(run.role == .marathoner ? "Sprinter" : "Marathoner")")
+                    Text(L10n.Activity.reclassify)
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -326,7 +326,7 @@ struct ActivityDetailView: View {
             ShareLink(item: generateShareText()) {
                 HStack {
                     Image(systemName: "square.and.arrow.up")
-                    Text("Share")
+                    Text(L10n.Common.share)
                 }
                 .frame(maxWidth: .infinity)
                 .padding()

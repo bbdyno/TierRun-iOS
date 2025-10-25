@@ -26,17 +26,14 @@ struct ConditionCardView: View {
     
     var recommendation: String {
         if score >= 80 {
-            return "Great condition! Perfect day for running 🏃‍♂️"
-        } else if score >= 60 {
-            return "Good condition. Easy run recommended."
-        } else {
-            return "Consider taking a rest day today 😴"
-        }
+            return L10n.Condition.great        } else if score >= 60 {
+            return L10n.Condition.good        } else {
+            return L10n.Condition.rest        }
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Today's Condition")
+            Text(L10n.Condition.title)
                 .font(.headline)
             
             HStack(alignment: .top, spacing: 20) {
@@ -47,7 +44,7 @@ struct ConditionCardView: View {
                             .font(.system(size: 48, weight: .bold, design: .rounded))
                             .foregroundStyle(scoreColor)
                         
-                        Text("/100")
+                        Text(L10n.Condition.outOf100)
                             .font(.title3)
                             .foregroundStyle(.secondary)
                     }
@@ -60,14 +57,12 @@ struct ConditionCardView: View {
                     DataPoint(
                         icon: "moon.fill",
                         value: String(format: "%.1fh", sleepHours),
-                        label: "Sleep"
-                    )
-                    
+                        label: L10n.Condition.sleep                    )
+
                     DataPoint(
                         icon: "heart.fill",
                         value: "\(restingHeartRate)",
-                        label: "Resting HR"
-                    )
+                        label: L10n.Condition.restingHR                    )
                 }
             }
             

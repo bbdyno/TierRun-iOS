@@ -36,8 +36,8 @@ struct PlacementTestView: View {
                 }
             }
         }
-        .alert("Error", isPresented: $showingError) {
-            Button("OK", role: .cancel) { }
+        .alert(L10n.Common.error, isPresented: $showingError) {
+            Button(L10n.Common.ok, role: .cancel) { }
         } message: {
             Text(errorMessage)
         }
@@ -52,11 +52,11 @@ struct PlacementTestView: View {
                 .foregroundStyle(.blue)
             
             VStack(spacing: 16) {
-                Text("Placement Test")
+                Text(L10n.Placement.title)
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                
-                Text("We'll analyze your past running data from HealthKit to place you in the right tier")
+
+                Text(L10n.Placement.subtitle)
                     .font(.headline)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -66,18 +66,15 @@ struct PlacementTestView: View {
             VStack(alignment: .leading, spacing: 12) {
                 PlacementStepRow(
                     number: 1,
-                    text: "Request HealthKit access"
-                )
-                
+                    text: L10n.Placement.step1                )
+
                 PlacementStepRow(
                     number: 2,
-                    text: "Analyze last 3 months of runs"
-                )
-                
+                    text: L10n.Placement.step2                )
+
                 PlacementStepRow(
                     number: 3,
-                    text: "Calculate fair starting tier"
-                )
+                    text: L10n.Placement.step3                )
             }
             .padding()
             .background(Color(.secondarySystemBackground))
@@ -89,7 +86,7 @@ struct PlacementTestView: View {
             Button {
                 startPlacementTest()
             } label: {
-                Text("Start Placement Test")
+                Text(L10n.Placement.startTest)
                     .font(.headline)
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
@@ -109,7 +106,7 @@ struct PlacementTestView: View {
             ProgressView()
                 .scaleEffect(2)
             
-            Text("Requesting HealthKit Permission...")
+            Text(L10n.Placement.requestingPermission)
                 .font(.headline)
                 .foregroundStyle(.secondary)
             
@@ -133,9 +130,9 @@ struct PlacementTestView: View {
             }
             
             VStack(spacing: 8) {
-                Text("Analyzing Your Data")
+                Text(L10n.Placement.analyzingData)
                     .font(.headline)
-                
+
                 Text(getAnalysisMessage())
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
@@ -150,22 +147,22 @@ struct PlacementTestView: View {
     private func placementResultView(result: PlacementResult) -> some View {
         ScrollView {
             VStack(spacing: 32) {
-                Text("Placement Complete!")
+                Text(L10n.Placement.complete)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.top, 40)
                 
                 // Marathoner Tier
                 TierResultCard(
-                    role: "Marathoner",
+                    role: L10n.Role.marathoner,
                     tier: result.marathonerTier,
                     grade: result.marathonerGrade,
                     analysis: result.marathonerAnalysis
                 )
-                
+
                 // Sprinter Tier
                 TierResultCard(
-                    role: "Sprinter",
+                    role: L10n.Role.sprinter,
                     tier: result.sprinterTier,
                     grade: result.sprinterGrade,
                     analysis: result.sprinterAnalysis
@@ -173,14 +170,14 @@ struct PlacementTestView: View {
                 
                 // Recommendation
                 VStack(spacing: 12) {
-                    Text("Recommended Role")
+                    Text(L10n.Placement.recommendedRole)
                         .font(.headline)
-                    
+
                     HStack {
                         Image(systemName: result.recommendedRole == .marathoner ? "figure.run" : "bolt.fill")
                             .font(.title)
-                        
-                        Text(result.recommendedRole == .marathoner ? "Marathoner" : "Sprinter")
+
+                        Text(result.recommendedRole == .marathoner ? L10n.Role.marathoner : L10n.Role.sprinter)
                             .font(.title2)
                             .fontWeight(.semibold)
                     }
@@ -194,7 +191,7 @@ struct PlacementTestView: View {
                 Button {
                     completeOnboarding(result: result)
                 } label: {
-                    Text("Get Started!")
+                    Text(L10n.Placement.getStarted)
                         .font(.headline)
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
@@ -238,7 +235,7 @@ struct PlacementTestView: View {
                 
             } catch {
                 await MainActor.run {
-                    errorMessage = "Failed to complete placement test: \(error.localizedDescription)"
+                    errorMessage = "Failed to complete placement test: \(errorDescription)"
                     showingError = true
                     currentStep = .welcome
                 }
@@ -319,16 +316,12 @@ struct PlacementTestView: View {
     
     private func getAnalysisMessage() -> String {
         let progress = analysisProgress
-        
+
         if progress < 0.3 {
-            return "Fetching your workout history..."
-        } else if progress < 0.6 {
-            return "Analyzing your running patterns..."
-        } else if progress < 0.9 {
-            return "Calculating fair placement..."
-        } else {
-            return "Almost done!"
-        }
+            return L10n.Placement.fetchingHistory        } else if progress < 0.6 {
+            return L10n.Placement.analyzingPatterns        } else if progress < 0.9 {
+            return L10n.Placement.calculatingPlacement        } else {
+            return L10n.Placement.almostDone        }
     }
 }
 
@@ -389,8 +382,8 @@ struct TierResultCard: View {
                     Text(tier.rawValue.capitalized)
                         .font(.title2)
                         .fontWeight(.bold)
-                    
-                    Text("Grade \(grade)")
+
+                    Text(L10n.Tier.grade(grade))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }

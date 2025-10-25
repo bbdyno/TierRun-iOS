@@ -43,7 +43,7 @@ struct HomeView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Home")
+            .navigationTitle(L10n.Home.title)
             .navigationBarTitleDisplayMode(.large)
             .onAppear {
                 if viewModel == nil {
@@ -64,7 +64,7 @@ struct HomeView: View {
                     .foregroundStyle(.secondary)
                 
                 if let lastSync = viewModel?.lastSyncDate {
-                    Text("Last sync: \(lastSync.formatted(date: .omitted, time: .shortened))")
+                    Text(L10n.Home.lastSync(lastSync.formatted(date: .omitted, time: .shortened)))
                         .font(.caption)
                         .foregroundStyle(.tertiary)
                 }
@@ -88,10 +88,10 @@ struct HomeView: View {
     
     private var recentActivitiesSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Recent Activities")
+            Text(L10n.Home.recentActivities)
                 .font(.title2)
                 .fontWeight(.bold)
-            
+
             if let runs = viewModel?.recentRuns, !runs.isEmpty {
                 ForEach(runs) { run in
                     NavigationLink(destination: ActivityDetailView(run: run)) {
@@ -101,9 +101,9 @@ struct HomeView: View {
                 }
             } else {
                 ContentUnavailableView(
-                    "No Recent Activities",
+                    L10n.Home.noActivities,
                     systemImage: "figure.run",
-                    description: Text("Sync your HealthKit data to see your runs")
+                    description: Text(L10n.Home.NoActivities.description)
                 )
             }
         }
@@ -114,7 +114,7 @@ struct HomeView: View {
             NavigationLink(destination: CertificateGeneratorView()) {
                 HStack {
                     Image(systemName: "rosette")
-                    Text("Create Tier Certificate")
+                    Text(L10n.Home.createCertificate)
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
@@ -122,11 +122,11 @@ struct HomeView: View {
                 .background(Color.blue.opacity(0.1))
                 .cornerRadius(12)
             }
-            
+
             NavigationLink(destination: Text("Weekly Highlights")) {
                 HStack {
                     Image(systemName: "chart.bar.fill")
-                    Text("View Weekly Highlights")
+                    Text(L10n.Home.weeklyHighlights)
                     Spacer()
                     Image(systemName: "chevron.right")
                 }

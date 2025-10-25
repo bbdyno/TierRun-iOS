@@ -61,14 +61,14 @@ struct WelcomePageView: View {
             }
             
             VStack(spacing: 16) {
-                Text("Welcome to")
+                Text(L10n.Onboarding.welcome)
                     .font(.title2)
                     .foregroundStyle(.secondary)
-                
-                Text("RunClimb")
+
+                Text(L10n.Onboarding.appName)
                     .font(.system(size: 56, weight: .bold))
-                
-                Text("Turn Your Runs into an Adventure")
+
+                Text(L10n.Onboarding.tagline)
                     .font(.title3)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -76,7 +76,7 @@ struct WelcomePageView: View {
             
             Spacer()
             
-            Text("Swipe to continue")
+            Text(L10n.Onboarding.swipeToContinue)
                 .font(.subheadline)
                 .foregroundStyle(.tertiary)
                 .padding(.bottom, 40)
@@ -90,7 +90,7 @@ struct ConceptPageView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 32) {
-                Text("How It Works")
+                Text(L10n.Onboarding.howItWorks)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.top, 60)
@@ -99,29 +99,29 @@ struct ConceptPageView: View {
                     FeatureCard(
                         icon: "figure.run",
                         color: .blue,
-                        title: "Use Your Favorite App",
-                        description: "Keep using Apple Watch, Nike Run Club, Strava, or any app. We sync from HealthKit."
+                        title: L10n.Onboarding.useYourFavoriteApp,
+                        description: L10n.Onboarding.useYourFavoriteAppDesc
                     )
-                    
+
                     FeatureCard(
                         icon: "crown.fill",
                         color: .yellow,
-                        title: "Tier System",
-                        description: "Earn LP for every run. Climb through Iron to Challenger tier, just like League of Legends!"
+                        title: L10n.Onboarding.tierSystem,
+                        description: L10n.Onboarding.tierSystemDesc
                     )
-                    
+
                     FeatureCard(
                         icon: "brain.head.profile",
                         color: .purple,
-                        title: "AI-Powered Fair Play",
-                        description: "Our AI adjusts for age, gender, and experience. Focus on personal improvement."
+                        title: L10n.Onboarding.aiPowered,
+                        description: L10n.Onboarding.aiPoweredDesc
                     )
-                    
+
                     FeatureCard(
                         icon: "rosette",
                         color: .green,
-                        title: "Beautiful Certificates",
-                        description: "Generate stunning tier certificates to share your achievements on social media."
+                        title: L10n.Onboarding.beautifulCertificates,
+                        description: L10n.Onboarding.beautifulCertificatesDesc
                     )
                 }
                 .padding(.horizontal)
@@ -174,11 +174,11 @@ struct HealthKitExplanationView: View {
                 .foregroundStyle(.red)
             
             VStack(spacing: 16) {
-                Text("HealthKit Integration")
+                Text(L10n.Onboarding.healthKitIntegration)
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                
-                Text("We need access to your HealthKit data to:")
+
+                Text(L10n.Onboarding.healthKitIntegrationDesc)
                     .font(.headline)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -187,22 +187,22 @@ struct HealthKitExplanationView: View {
             VStack(alignment: .leading, spacing: 16) {
                 HealthKitPermissionRow(
                     icon: "figure.run",
-                    text: "Read your running workouts"
+                    text: L10n.Onboarding.readWorkouts
                 )
-                
+
                 HealthKitPermissionRow(
                     icon: "heart.fill",
-                    text: "Analyze your heart rate data"
+                    text: L10n.Onboarding.analyzeHeartRate
                 )
-                
+
                 HealthKitPermissionRow(
                     icon: "moon.fill",
-                    text: "Check your sleep patterns"
+                    text: L10n.Onboarding.checkSleep
                 )
-                
+
                 HealthKitPermissionRow(
                     icon: "figure.walk",
-                    text: "Track your activity levels"
+                    text: L10n.Onboarding.trackActivity
                 )
             }
             .padding()
@@ -210,7 +210,7 @@ struct HealthKitExplanationView: View {
             .cornerRadius(16)
             .padding(.horizontal)
             
-            Text("🔒 Your data never leaves your device")
+            Text(L10n.Onboarding.privacyMessage)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)

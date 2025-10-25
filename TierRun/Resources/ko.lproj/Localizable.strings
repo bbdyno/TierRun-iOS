@@ -1,0 +1,311 @@
+/*
+  Localizable.strings (Korean)
+  TierRun
+*/
+
+// Common
+"common.ok" = "확인";
+"common.cancel" = "취소";
+"common.save" = "저장";
+"common.delete" = "삭제";
+"common.edit" = "편집";
+"common.done" = "완료";
+"common.error" = "오류";
+"common.loading" = "로딩 중...";
+"common.share" = "공유";
+"common.reset" = "초기화";
+
+// App
+"app.name" = "티어런";
+
+// Units
+"unit.km" = "km";
+"unit.m" = "m";
+"unit.bpm" = "bpm";
+"unit.spm" = "spm";
+"unit.kg" = "kg";
+
+// Tabs
+"tab.home" = "홈";
+"tab.tier" = "티어";
+"tab.activity" = "활동";
+"tab.profile" = "프로필";
+
+// Home
+"home.title" = "홈";
+"home.lastSync" = "마지막 동기화: %@";
+"home.recentActivities" = "최근 활동";
+"home.quickActions" = "빠른 작업";
+"home.noActivities" = "최근 활동 없음";
+"home.noActivities.description" = "HealthKit 데이터를 동기화하여 러닝 기록을 확인하세요";
+"home.createCertificate" = "티어 인증서 생성";
+"home.weeklyHighlights" = "주간 하이라이트 보기";
+
+// Running
+"running.start" = "시작";
+"running.pause" = "일시정지";
+"running.resume" = "재개";
+"running.stop" = "종료";
+"running.distance" = "거리";
+"running.pace" = "페이스";
+"running.time" = "시간";
+"running.calories" = "칼로리";
+"running.elevation" = "고도";
+"running.cadence" = "케이던스";
+
+// Tier
+"tier.title" = "티어";
+"tier.iron" = "아이언";
+"tier.bronze" = "브론즈";
+"tier.silver" = "실버";
+"tier.gold" = "골드";
+"tier.platinum" = "플래티넘";
+"tier.diamond" = "다이아몬드";
+"tier.master" = "마스터";
+"tier.challenger" = "챌린저";
+"tier.lpStats" = "LP 통계";
+"tier.thisWeek" = "이번 주";
+"tier.thisMonth" = "이번 달";
+"tier.thisSeason" = "이번 시즌";
+"tier.history" = "티어 기록";
+"tier.noHistory" = "아직 티어 기록이 없습니다";
+"tier.createCertificate" = "티어 인증서 생성";
+"tier.learnMore" = "티어 시스템 알아보기";
+"tier.top" = "상위 %@%%";
+"tier.grade" = "등급 %@";
+
+// Tier System Info
+"tierInfo.intro" = "티어 시스템은 마라토너와 스프린터 두 가지 역할로 러닝 성능을 랭크합니다.";
+"tierInfo.howItWorks" = "작동 방식";
+"tierInfo.tierRanks" = "티어 순위";
+"tierInfo.topPercent" = "상위 0.1%%";
+"tierInfo.earnLP" = "• 러닝을 완료하여 LP를 획득하세요";
+"tierInfo.lpCalculation" = "• LP는 다음을 기반으로 계산됩니다:";
+"tierInfo.distancePace" = "  - 거리와 페이스";
+"tierInfo.heartRate" = "  - 심박수 관리";
+"tierInfo.consistency" = "  - 일관성";
+"tierInfo.reachThreshold" = "• 다음 티어의 LP 임계값에 도달하세요";
+"tierInfo.completeChallenges" = "• 승급 챌린지를 완료하세요";
+"tierInfo.howToRankUp" = "승급 방법";
+"tierInfo.aiAdjusts" = "• AI가 나이, 성별, 경험을 고려하여 조정합니다";
+"tierInfo.personalImprovement" = "• 속도가 아닌 개인적 향상에 집중하세요";
+"tierInfo.healthyTraining" = "• 건강한 훈련이 보상됩니다";
+"tierInfo.restDays" = "• 휴식일은 LP를 낮추지 않습니다";
+"tierInfo.fairPlay" = "공정한 플레이";
+
+// Roles
+"role.title" = "역할";
+"role.marathoner" = "마라토너";
+"role.sprinter" = "스프린터";
+
+// Activity
+"activity.title" = "활동";
+"activity.noActivities" = "활동 없음";
+"activity.noActivities.description" = "HealthKit에서 러닝 활동이 여기에 표시됩니다";
+"activity.runDetails" = "러닝 상세";
+"activity.reclassify" = "재분류";
+"activity.reclassifyTitle" = "러닝 재분류";
+"activity.reclassifyMessage" = "이 러닝을 %@(으)로 변경하시겠습니까? LP가 재계산됩니다.";
+"activity.additionalData" = "추가 데이터";
+"activity.route" = "경로";
+"activity.start" = "시작";
+"activity.end" = "종료";
+"activity.heartRate" = "심박수";
+"activity.average" = "평균";
+"activity.maximum" = "최대";
+"activity.timeInZones" = "구간별 시간";
+"activity.zone" = "구간 %d";
+"activity.splits" = "스플릿";
+"activity.shareMessage" = "방금 %.2f km 러닝을 완료했습니다! 🏃‍♂️\n시간: %@\n페이스: %@ /km\n+%d LP 획득!";
+
+// Activity Filters
+"filter.title" = "필터";
+"filter.role" = "역할";
+"filter.period" = "기간";
+"filter.sortBy" = "정렬 기준";
+"filter.sort" = "정렬";
+
+// Profile
+"profile.title" = "프로필";
+"profile.tiers" = "티어";
+"profile.statistics" = "통계";
+"profile.totalRuns" = "총 러닝 횟수";
+"profile.totalDistance" = "총 거리";
+"profile.totalLP" = "총 LP";
+"profile.certificate" = "인증서";
+"profile.createCertificate" = "티어 인증서 생성";
+"profile.achievements" = "업적";
+"profile.achievementsProgress" = "%d / %d 잠금 해제";
+"profile.titles" = "칭호";
+"profile.progression" = "진행 상황";
+"profile.support" = "지원";
+"profile.supportDeveloper" = "개발자 지원";
+"profile.supportMessage" = "티어런은 무료로 사용할 수 있습니다. 개발자를 지원해 주세요!";
+"profile.settings" = "설정";
+"profile.about" = "정보";
+"profile.termsOfService" = "서비스 약관";
+"profile.privacyPolicy" = "개인정보 보호정책";
+"profile.version" = "버전";
+
+// Settings
+"settings.title" = "설정";
+"settings.units" = "단위";
+"settings.metricUnits" = "미터법 단위 (km)";
+"settings.metricDescription" = "거리가 킬로미터로 표시됩니다";
+"settings.imperialDescription" = "거리가 마일로 표시됩니다";
+"settings.localization" = "언어";
+"settings.english" = "English";
+"settings.korean" = "한국어";
+"settings.japanese" = "日本語";
+"settings.appBehavior" = "앱 동작";
+"settings.enableNotifications" = "알림 활성화";
+"settings.autoSyncHealthKit" = "HealthKit 자동 동기화";
+"settings.autoSyncDescription" = "자동 동기화는 매일 새로운 운동을 확인합니다";
+"settings.healthKit" = "HealthKit";
+"settings.healthKitPermissions" = "HealthKit 권한";
+"settings.permissionsStatus" = "권한 상태";
+"settings.workoutData" = "운동 데이터";
+"settings.heartRate" = "심박수";
+"settings.sleepAnalysis" = "수면 분석";
+"settings.openHealthApp" = "건강 앱 열기";
+"settings.healthAppMessage" = "건강 앱의 소스에서 HealthKit 권한을 관리할 수 있습니다.";
+"settings.dataManagement" = "데이터 관리";
+"settings.exportData" = "모든 데이터 내보내기";
+"settings.resetPlacementTest" = "배치 테스트 재설정";
+"settings.deleteAllData" = "모든 데이터 삭제";
+
+// Onboarding
+"onboarding.welcome" = "환영합니다";
+"onboarding.appName" = "티어런";
+"onboarding.tagline" = "러닝을 모험으로 바꾸세요";
+"onboarding.swipeToContinue" = "스와이프하여 계속";
+"onboarding.howItWorks" = "작동 방식";
+"onboarding.useYourFavoriteApp" = "좋아하는 앱 사용";
+"onboarding.useYourFavoriteAppDesc" = "Apple Watch, Nike Run Club, Strava 등 원하는 앱을 계속 사용하세요. HealthKit에서 동기화합니다.";
+"onboarding.tierSystem" = "티어 시스템";
+"onboarding.tierSystemDesc" = "러닝마다 LP를 획득하세요. League of Legends처럼 아이언부터 챌린저까지 올라가세요!";
+"onboarding.aiPowered" = "AI 기반 공정한 플레이";
+"onboarding.aiPoweredDesc" = "AI가 나이, 성별, 경험을 고려합니다. 개인적 향상에 집중하세요.";
+"onboarding.beautifulCertificates" = "아름다운 인증서";
+"onboarding.beautifulCertificatesDesc" = "멋진 티어 인증서를 생성하여 소셜 미디어에서 당신의 성취를 공유하세요.";
+"onboarding.healthKitIntegration" = "HealthKit 연동";
+"onboarding.healthKitIntegrationDesc" = "다음을 위해 HealthKit 데이터 접근 권한이 필요합니다:";
+"onboarding.readWorkouts" = "러닝 운동 기록 읽기";
+"onboarding.analyzeHeartRate" = "심박수 데이터 분석";
+"onboarding.checkSleep" = "수면 패턴 확인";
+"onboarding.trackActivity" = "활동 수준 추적";
+"onboarding.privacyMessage" = "🔒 데이터는 절대 기기를 떠나지 않습니다";
+
+// Placement Test
+"placement.title" = "배치 테스트";
+"placement.subtitle" = "HealthKit의 과거 러닝 데이터를 분석하여 적절한 티어에 배치합니다";
+"placement.step1" = "HealthKit 접근 권한 요청";
+"placement.step2" = "최근 3개월 러닝 분석";
+"placement.step3" = "공정한 시작 티어 계산";
+"placement.startTest" = "배치 테스트 시작";
+"placement.requestingPermission" = "HealthKit 권한 요청 중...";
+"placement.analyzingData" = "데이터 분석 중";
+"placement.fetchingHistory" = "운동 기록 가져오는 중...";
+"placement.analyzingPatterns" = "러닝 패턴 분석 중...";
+"placement.calculatingPlacement" = "공정한 배치 계산 중...";
+"placement.almostDone" = "거의 완료되었습니다!";
+"placement.complete" = "배치 완료!";
+"placement.recommendedRole" = "추천 역할";
+"placement.getStarted" = "시작하기!";
+"placement.noDataFound" = "최근 데이터를 찾을 수 없습니다. %@ 티어에서 시작합니다.";
+
+// Basic Info
+"basicInfo.title" = "기본 정보";
+"basicInfo.name" = "이름";
+"basicInfo.basicInformation" = "기본 정보";
+"basicInfo.gender" = "성별";
+"basicInfo.male" = "남성";
+"basicInfo.female" = "여성";
+"basicInfo.other" = "기타";
+"basicInfo.age" = "나이";
+"basicInfo.weight" = "체중";
+"basicInfo.physicalProfile" = "신체 프로필";
+"basicInfo.profileDescription" = "프로필을 기반으로 공정하게 LP를 계산하는 데 도움이 됩니다";
+"basicInfo.runningExperience" = "러닝 경험";
+"basicInfo.beginner" = "초보 (< 6개월)";
+"basicInfo.intermediate" = "중급 (6개월 - 2년)";
+"basicInfo.advanced" = "고급 (2년 - 5년)";
+"basicInfo.elite" = "엘리트 (5년+)";
+"basicInfo.experienceLevel" = "경험 수준";
+"basicInfo.continue" = "배치 테스트로 계속";
+"basicInfo.invalidInput" = "유효한 나이와 체중을 입력하세요";
+
+// Condition
+"condition.title" = "오늘의 컨디션";
+"condition.outOf100" = "/100";
+"condition.sleep" = "수면";
+"condition.restingHR" = "안정 심박수";
+"condition.great" = "훌륭한 컨디션! 러닝하기 완벽한 날입니다 🏃‍♂️";
+"condition.good" = "좋은 컨디션. 가벼운 러닝을 추천합니다.";
+"condition.rest" = "오늘은 휴식을 취하는 것이 좋겠습니다 😴";
+
+// Weekly Goal
+"weeklyGoal.title" = "주간 목표";
+"weeklyGoal.runsProgress" = "%d / %d 러닝";
+"weeklyGoal.thisWeek" = "이번 주";
+
+// Achievements
+"achievements.title" = "업적";
+"achievements.category" = "카테고리";
+"achievements.progress" = "%d%%";
+
+// Titles
+"titles.title" = "칭호";
+"titles.unequip" = "칭호 해제";
+"titles.equipped" = "장착됨";
+"titles.unlocked" = "잠금 해제된 칭호";
+"titles.locked" = "잠긴 칭호";
+"titles.requirement" = "요구 사항: %@";
+
+// Certificate
+"certificate.title" = "인증서 생성";
+"certificate.preview" = "미리보기";
+"certificate.previewPlaceholder" = "미리보기가 여기에 표시됩니다";
+"certificate.generatePreview" = "미리보기 생성";
+"certificate.template" = "템플릿";
+"certificate.classic" = "클래식";
+"certificate.classicDesc" = "깔끔하고 우아한 디자인";
+"certificate.modern" = "모던";
+"certificate.modernDesc" = "대담하고 현대적";
+"certificate.minimal" = "미니멀";
+"certificate.minimalDesc" = "심플하고 세련된";
+"certificate.customization" = "사용자 지정";
+"certificate.backgroundColor" = "배경색";
+"certificate.showPattern" = "패턴 표시";
+"certificate.includeQR" = "QR 코드 포함";
+"certificate.saveToPhotos" = "사진에 저장";
+"certificate.saved" = "저장됨!";
+"certificate.savedMessage" = "인증서가 사진 라이브러리에 저장되었습니다";
+"certificate.permissionDenied" = "권한 거부됨";
+"certificate.permissionDeniedMessage" = "인증서를 저장하려면 설정에서 사진 라이브러리 접근 권한을 허용해주세요.";
+"certificate.saveFailed" = "저장 실패";
+"certificate.saveFailedMessage" = "인증서를 저장하는 중 오류가 발생했습니다.";
+
+// Donation
+"donation.title" = "티어런 지원";
+"donation.description" = "티어런은 광고 없이 완전 무료입니다. 여러분의 지원이 이를 유지하는 데 도움이 됩니다!";
+"donation.selectAmount" = "금액 선택";
+"donation.methods" = "후원 방법";
+"donation.bitcoin" = "Bitcoin";
+"donation.ethereum" = "Ethereum";
+"donation.thankYou" = "감사합니다! 🙏";
+"donation.thankYouMessage" = "모든 기여가 러닝 커뮤니티를 위한 티어런 유지 및 개선에 도움이 됩니다.";
+"donation.donate" = "후원";
+"donation.copied" = "복사됨!";
+"donation.copiedMessage" = "주소가 클립보드에 복사되었습니다";
+
+// Permissions
+"permission.health.title" = "건강 데이터 접근 권한";
+"permission.health.message" = "러닝 데이터를 기록하고 분석하기 위해 건강 데이터 접근 권한이 필요합니다.";
+"permission.location.title" = "위치 권한";
+"permission.location.message" = "러닝 경로를 기록하기 위해 위치 권한이 필요합니다.";
+
+// Errors
+"error.health.unavailable" = "건강 데이터를 사용할 수 없습니다.";
+"error.health.unauthorized" = "건강 데이터 접근 권한이 없습니다.";
+"error.location.unavailable" = "위치 서비스를 사용할 수 없습니다.";

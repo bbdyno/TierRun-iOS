@@ -15,11 +15,11 @@ struct TierSystemInfoView: View {
     var body: some View {
         List {
             Section {
-                Text("The tier system ranks your running performance across two roles: Marathoner and Sprinter.")
+                Text(L10n.TierInfo.intro)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             } header: {
-                Text("How It Works")
+                Text(L10n.TierInfo.howItWorks)
             }
             
             Section {
@@ -40,44 +40,44 @@ struct TierSystemInfoView: View {
                         Spacer()
                         
                         if tier == .challenger {
-                            Text("Top 0.1%")
+                            Text(L10n.TierInfo.topPercent)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
                     }
                 }
             } header: {
-                Text("Tier Ranks")
+                Text(L10n.TierInfo.tierRanks)
             }
-            
+
             Section {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("• Complete runs to earn LP")
-                    Text("• LP is calculated based on:")
-                    Text("  - Distance and pace")
-                    Text("  - Heart rate management")
-                    Text("  - Consistency")
-                    Text("• Reach the next tier's LP threshold")
-                    Text("• Complete promotion challenges")
+                    Text(L10n.TierInfo.earnLP)
+                    Text(L10n.TierInfo.lpCalculation)
+                    Text(L10n.TierInfo.distancePace)
+                    Text(L10n.TierInfo.heartRate)
+                    Text(L10n.TierInfo.consistency)
+                    Text(L10n.TierInfo.reachThreshold)
+                    Text(L10n.TierInfo.completeChallenges)
                 }
                 .font(.subheadline)
             } header: {
-                Text("How to Rank Up")
+                Text(L10n.TierInfo.howToRankUp)
             }
-            
+
             Section {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("• AI adjusts for age, gender, and experience")
-                    Text("• Focus on personal improvement, not just speed")
-                    Text("• Healthy training is rewarded")
-                    Text("• Rest days don't lower your LP")
+                    Text(L10n.TierInfo.aiAdjusts)
+                    Text(L10n.TierInfo.personalImprovement)
+                    Text(L10n.TierInfo.healthyTraining)
+                    Text(L10n.TierInfo.restDays)
                 }
                 .font(.subheadline)
             } header: {
-                Text("Fair Play")
+                Text(L10n.TierInfo.fairPlay)
             }
         }
-        .navigationTitle("Tier System")
+        .navigationTitle(L10n.Tier.title)
         .navigationBarTitleDisplayMode(.large)
     }
     

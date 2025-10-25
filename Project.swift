@@ -3,6 +3,10 @@ import ProjectDescription
 let project = Project(
     name: "TierRun",
     organizationName: "com.tngtng",
+    options: .options(
+        defaultKnownRegions: ["en", "ko"],
+        developmentRegion: "ko"
+    ),
     settings: .settings(
         base: [
             "DEVELOPMENT_TEAM": "",
@@ -30,10 +34,23 @@ let project = Project(
                 "TierRun/**/*.xcassets",
                 "TierRun/**/*.storyboard",
                 "TierRun/**/*.xib",
-                "TierRun/**/*.strings",
+                "TierRun/Resources/**/*.strings",
                 "TierRun/**/*.intentdefinition"
             ],
             entitlements: .file(path: "TierRun/TierRun.entitlements"),
+            scripts: [
+                .pre(
+                    script: """
+                    if which swiftgen >/dev/null; then
+                        swiftgen config run --config swiftgen.yml
+                    else
+                        echo "warning: SwiftGen not installed, download from https://github.com/SwiftGen/SwiftGen"
+                    fi
+                    """,
+                    name: "SwiftGen",
+                    basedOnDependencyAnalysis: false
+                )
+            ],
             dependencies: []
         ),
 

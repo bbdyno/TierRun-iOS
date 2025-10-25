@@ -1,0 +1,311 @@
+/*
+  Localizable.strings (English)
+  TierRun
+*/
+
+// Common
+"common.ok" = "OK";
+"common.cancel" = "Cancel";
+"common.save" = "Save";
+"common.delete" = "Delete";
+"common.edit" = "Edit";
+"common.done" = "Done";
+"common.error" = "Error";
+"common.loading" = "Loading...";
+"common.share" = "Share";
+"common.reset" = "Reset";
+
+// App
+"app.name" = "TierRun";
+
+// Units
+"unit.km" = "km";
+"unit.m" = "m";
+"unit.bpm" = "bpm";
+"unit.spm" = "spm";
+"unit.kg" = "kg";
+
+// Tabs
+"tab.home" = "Home";
+"tab.tier" = "Tier";
+"tab.activity" = "Activity";
+"tab.profile" = "Profile";
+
+// Home
+"home.title" = "Home";
+"home.lastSync" = "Last sync: %@";
+"home.recentActivities" = "Recent Activities";
+"home.quickActions" = "Quick Actions";
+"home.noActivities" = "No Recent Activities";
+"home.noActivities.description" = "Sync your HealthKit data to see your runs";
+"home.createCertificate" = "Create Tier Certificate";
+"home.weeklyHighlights" = "View Weekly Highlights";
+
+// Running
+"running.start" = "Start";
+"running.pause" = "Pause";
+"running.resume" = "Resume";
+"running.stop" = "Stop";
+"running.distance" = "Distance";
+"running.pace" = "Pace";
+"running.time" = "Time";
+"running.calories" = "Calories";
+"running.elevation" = "Elevation";
+"running.cadence" = "Cadence";
+
+// Tier
+"tier.title" = "Tier";
+"tier.iron" = "Iron";
+"tier.bronze" = "Bronze";
+"tier.silver" = "Silver";
+"tier.gold" = "Gold";
+"tier.platinum" = "Platinum";
+"tier.diamond" = "Diamond";
+"tier.master" = "Master";
+"tier.challenger" = "Challenger";
+"tier.lpStats" = "LP Stats";
+"tier.thisWeek" = "This Week";
+"tier.thisMonth" = "This Month";
+"tier.thisSeason" = "This Season";
+"tier.history" = "Tier History";
+"tier.noHistory" = "No tier history yet";
+"tier.createCertificate" = "Create Tier Certificate";
+"tier.learnMore" = "Learn About Tier System";
+"tier.top" = "Top %@%%";
+"tier.grade" = "Grade %@";
+
+// Tier System Info
+"tierInfo.intro" = "The tier system ranks your running performance across two roles: Marathoner and Sprinter.";
+"tierInfo.howItWorks" = "How It Works";
+"tierInfo.tierRanks" = "Tier Ranks";
+"tierInfo.topPercent" = "Top 0.1%%";
+"tierInfo.earnLP" = "• Complete runs to earn LP";
+"tierInfo.lpCalculation" = "• LP is calculated based on:";
+"tierInfo.distancePace" = "  - Distance and pace";
+"tierInfo.heartRate" = "  - Heart rate management";
+"tierInfo.consistency" = "  - Consistency";
+"tierInfo.reachThreshold" = "• Reach the next tier's LP threshold";
+"tierInfo.completeChallenges" = "• Complete promotion challenges";
+"tierInfo.howToRankUp" = "How to Rank Up";
+"tierInfo.aiAdjusts" = "• AI adjusts for age, gender, and experience";
+"tierInfo.personalImprovement" = "• Focus on personal improvement, not just speed";
+"tierInfo.healthyTraining" = "• Healthy training is rewarded";
+"tierInfo.restDays" = "• Rest days don't lower your LP";
+"tierInfo.fairPlay" = "Fair Play";
+
+// Roles
+"role.title" = "Role";
+"role.marathoner" = "Marathoner";
+"role.sprinter" = "Sprinter";
+
+// Activity
+"activity.title" = "Activity";
+"activity.noActivities" = "No Activities";
+"activity.noActivities.description" = "Your running activities from HealthKit will appear here";
+"activity.runDetails" = "Run Details";
+"activity.reclassify" = "Reclassify";
+"activity.reclassifyTitle" = "Reclassify Run";
+"activity.reclassifyMessage" = "Change this run to %@? LP will be recalculated.";
+"activity.additionalData" = "Additional Data";
+"activity.route" = "Route";
+"activity.start" = "Start";
+"activity.end" = "End";
+"activity.heartRate" = "Heart Rate";
+"activity.average" = "Average";
+"activity.maximum" = "Maximum";
+"activity.timeInZones" = "Time in Zones";
+"activity.zone" = "Zone %d";
+"activity.splits" = "Splits";
+"activity.shareMessage" = "I just completed a %.2f km run! 🏃‍♂️\nTime: %@\nPace: %@ /km\n+%d LP earned!";
+
+// Activity Filters
+"filter.title" = "Filter";
+"filter.role" = "Role";
+"filter.period" = "Period";
+"filter.sortBy" = "Sort By";
+"filter.sort" = "Sort";
+
+// Profile
+"profile.title" = "Profile";
+"profile.tiers" = "Tiers";
+"profile.statistics" = "Statistics";
+"profile.totalRuns" = "Total Runs";
+"profile.totalDistance" = "Total Distance";
+"profile.totalLP" = "Total LP";
+"profile.certificate" = "Certificate";
+"profile.createCertificate" = "Create Tier Certificate";
+"profile.achievements" = "Achievements";
+"profile.achievementsProgress" = "%d / %d unlocked";
+"profile.titles" = "Titles";
+"profile.progression" = "Progression";
+"profile.support" = "Support";
+"profile.supportDeveloper" = "Support Developer";
+"profile.supportMessage" = "TierRun is free to use. Consider supporting the developer!";
+"profile.settings" = "Settings";
+"profile.about" = "About";
+"profile.termsOfService" = "Terms of Service";
+"profile.privacyPolicy" = "Privacy Policy";
+"profile.version" = "Version";
+
+// Settings
+"settings.title" = "Settings";
+"settings.units" = "Units";
+"settings.metricUnits" = "Metric Units (km)";
+"settings.metricDescription" = "Distance will be shown in kilometers";
+"settings.imperialDescription" = "Distance will be shown in miles";
+"settings.localization" = "Localization";
+"settings.english" = "English";
+"settings.korean" = "한국어";
+"settings.japanese" = "日本語";
+"settings.appBehavior" = "App Behavior";
+"settings.enableNotifications" = "Enable Notifications";
+"settings.autoSyncHealthKit" = "Auto Sync HealthKit";
+"settings.autoSyncDescription" = "Auto sync will check for new workouts daily";
+"settings.healthKit" = "HealthKit";
+"settings.healthKitPermissions" = "HealthKit Permissions";
+"settings.permissionsStatus" = "Permissions Status";
+"settings.workoutData" = "Workout Data";
+"settings.heartRate" = "Heart Rate";
+"settings.sleepAnalysis" = "Sleep Analysis";
+"settings.openHealthApp" = "Open Health App";
+"settings.healthAppMessage" = "You can manage HealthKit permissions in the Health app under Sources.";
+"settings.dataManagement" = "Data Management";
+"settings.exportData" = "Export All Data";
+"settings.resetPlacementTest" = "Reset Placement Test";
+"settings.deleteAllData" = "Delete All Data";
+
+// Onboarding
+"onboarding.welcome" = "Welcome to";
+"onboarding.appName" = "TierRun";
+"onboarding.tagline" = "Turn Your Runs into an Adventure";
+"onboarding.swipeToContinue" = "Swipe to continue";
+"onboarding.howItWorks" = "How It Works";
+"onboarding.useYourFavoriteApp" = "Use Your Favorite App";
+"onboarding.useYourFavoriteAppDesc" = "Keep using Apple Watch, Nike Run Club, Strava, or any app. We sync from HealthKit.";
+"onboarding.tierSystem" = "Tier System";
+"onboarding.tierSystemDesc" = "Earn LP for every run. Climb through Iron to Challenger tier, just like League of Legends!";
+"onboarding.aiPowered" = "AI-Powered Fair Play";
+"onboarding.aiPoweredDesc" = "Our AI adjusts for age, gender, and experience. Focus on personal improvement.";
+"onboarding.beautifulCertificates" = "Beautiful Certificates";
+"onboarding.beautifulCertificatesDesc" = "Generate stunning tier certificates to share your achievements on social media.";
+"onboarding.healthKitIntegration" = "HealthKit Integration";
+"onboarding.healthKitIntegrationDesc" = "We need access to your HealthKit data to:";
+"onboarding.readWorkouts" = "Read your running workouts";
+"onboarding.analyzeHeartRate" = "Analyze your heart rate data";
+"onboarding.checkSleep" = "Check your sleep patterns";
+"onboarding.trackActivity" = "Track your activity levels";
+"onboarding.privacyMessage" = "🔒 Your data never leaves your device";
+
+// Placement Test
+"placement.title" = "Placement Test";
+"placement.subtitle" = "We'll analyze your past running data from HealthKit to place you in the right tier";
+"placement.step1" = "Request HealthKit access";
+"placement.step2" = "Analyze last 3 months of runs";
+"placement.step3" = "Calculate fair starting tier";
+"placement.startTest" = "Start Placement Test";
+"placement.requestingPermission" = "Requesting HealthKit Permission...";
+"placement.analyzingData" = "Analyzing Your Data";
+"placement.fetchingHistory" = "Fetching your workout history...";
+"placement.analyzingPatterns" = "Analyzing your running patterns...";
+"placement.calculatingPlacement" = "Calculating fair placement...";
+"placement.almostDone" = "Almost done!";
+"placement.complete" = "Placement Complete!";
+"placement.recommendedRole" = "Recommended Role";
+"placement.getStarted" = "Get Started!";
+"placement.noDataFound" = "No recent data found. You'll start in %@ tier.";
+
+// Basic Info
+"basicInfo.title" = "Basic Information";
+"basicInfo.name" = "Name";
+"basicInfo.basicInformation" = "Basic Information";
+"basicInfo.gender" = "Gender";
+"basicInfo.male" = "Male";
+"basicInfo.female" = "Female";
+"basicInfo.other" = "Other";
+"basicInfo.age" = "Age";
+"basicInfo.weight" = "Weight";
+"basicInfo.physicalProfile" = "Physical Profile";
+"basicInfo.profileDescription" = "This helps us calculate LP fairly based on your profile";
+"basicInfo.runningExperience" = "Running Experience";
+"basicInfo.beginner" = "Beginner (< 6 months)";
+"basicInfo.intermediate" = "Intermediate (6m - 2y)";
+"basicInfo.advanced" = "Advanced (2y - 5y)";
+"basicInfo.elite" = "Elite (5y+)";
+"basicInfo.experienceLevel" = "Experience Level";
+"basicInfo.continue" = "Continue to Placement Test";
+"basicInfo.invalidInput" = "Please enter valid age and weight";
+
+// Condition
+"condition.title" = "Today's Condition";
+"condition.outOf100" = "/100";
+"condition.sleep" = "Sleep";
+"condition.restingHR" = "Resting HR";
+"condition.great" = "Great condition! Perfect day for running 🏃‍♂️";
+"condition.good" = "Good condition. Easy run recommended.";
+"condition.rest" = "Consider taking a rest day today 😴";
+
+// Weekly Goal
+"weeklyGoal.title" = "Weekly Goal";
+"weeklyGoal.runsProgress" = "%d / %d runs";
+"weeklyGoal.thisWeek" = "This Week";
+
+// Achievements
+"achievements.title" = "Achievements";
+"achievements.category" = "Category";
+"achievements.progress" = "%d%%";
+
+// Titles
+"titles.title" = "Titles";
+"titles.unequip" = "Unequip Title";
+"titles.equipped" = "Equipped";
+"titles.unlocked" = "Unlocked Titles";
+"titles.locked" = "Locked Titles";
+"titles.requirement" = "Requirement: %@";
+
+// Certificate
+"certificate.title" = "Create Certificate";
+"certificate.preview" = "Preview";
+"certificate.previewPlaceholder" = "Preview will appear here";
+"certificate.generatePreview" = "Generate Preview";
+"certificate.template" = "Template";
+"certificate.classic" = "Classic";
+"certificate.classicDesc" = "Clean and elegant design";
+"certificate.modern" = "Modern";
+"certificate.modernDesc" = "Bold and contemporary";
+"certificate.minimal" = "Minimal";
+"certificate.minimalDesc" = "Simple and refined";
+"certificate.customization" = "Customization";
+"certificate.backgroundColor" = "Background Color";
+"certificate.showPattern" = "Show Pattern";
+"certificate.includeQR" = "Include QR Code";
+"certificate.saveToPhotos" = "Save to Photos";
+"certificate.saved" = "Saved!";
+"certificate.savedMessage" = "Certificate saved to your photo library";
+"certificate.permissionDenied" = "Permission Denied";
+"certificate.permissionDeniedMessage" = "Please allow photo library access in Settings to save certificates.";
+"certificate.saveFailed" = "Save Failed";
+"certificate.saveFailedMessage" = "An error occurred while saving the certificate.";
+
+// Donation
+"donation.title" = "Support TierRun";
+"donation.description" = "TierRun is completely free with no ads. Your support helps keep it that way!";
+"donation.selectAmount" = "Select Amount";
+"donation.methods" = "Donation Methods";
+"donation.bitcoin" = "Bitcoin";
+"donation.ethereum" = "Ethereum";
+"donation.thankYou" = "Thank You! 🙏";
+"donation.thankYouMessage" = "Every contribution helps maintain and improve TierRun for the running community.";
+"donation.donate" = "Donate";
+"donation.copied" = "Copied!";
+"donation.copiedMessage" = "Address copied to clipboard";
+
+// Permissions
+"permission.health.title" = "Health Data Access";
+"permission.health.message" = "We need access to health data to record and analyze your running activities.";
+"permission.location.title" = "Location Permission";
+"permission.location.message" = "We need location permission to track your running route.";
+
+// Errors
+"error.health.unavailable" = "Health data is unavailable.";
+"error.health.unauthorized" = "Health data access is not authorized.";
+"error.location.unavailable" = "Location services are unavailable.";

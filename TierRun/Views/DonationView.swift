@@ -24,11 +24,11 @@ struct DonationView: View {
                         .font(.system(size: 80))
                         .foregroundStyle(.red)
                     
-                    Text("Support RunClimb")
+                    Text(L10n.Donation.title)
                         .font(.title)
                         .fontWeight(.bold)
-                    
-                    Text("RunClimb is completely free with no ads. Your support helps keep it that way!")
+
+                    Text(L10n.Donation.description)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -37,7 +37,7 @@ struct DonationView: View {
                 
                 // Amount Selection
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Select Amount")
+                    Text(L10n.Donation.selectAmount)
                         .font(.headline)
                     
                     HStack(spacing: 12) {
@@ -60,23 +60,23 @@ struct DonationView: View {
                 
                 // Donation Methods
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Donation Methods")
+                    Text(L10n.Donation.methods)
                         .font(.headline)
                         .padding(.horizontal)
-                    
+
                     // Bitcoin
                     DonationMethodCard(
                         icon: "bitcoinsign.circle.fill",
-                        title: "Bitcoin",
+                        title: L10n.Donation.bitcoin,
                         address: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
                         color: .orange,
                         showingCopiedAlert: $showingCopiedAlert
                     )
-                    
+
                     // Ethereum
                     DonationMethodCard(
                         icon: "e.circle.fill",
-                        title: "Ethereum",
+                        title: L10n.Donation.ethereum,
                         address: "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
                         color: .purple,
                         showingCopiedAlert: $showingCopiedAlert
@@ -85,10 +85,10 @@ struct DonationView: View {
                 
                 // Thank You Message
                 VStack(spacing: 8) {
-                    Text("Thank You! 🙏")
+                    Text(L10n.Donation.thankYou)
                         .font(.headline)
-                    
-                    Text("Every contribution helps maintain and improve RunClimb for the running community.")
+
+                    Text(L10n.Donation.thankYouMessage)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -100,11 +100,11 @@ struct DonationView: View {
             }
             .padding(.vertical)
         }
-        .navigationTitle("Donate")
-        .alert("Copied!", isPresented: $showingCopiedAlert) {
-            Button("OK", role: .cancel) { }
+        .navigationTitle(L10n.Donation.donate)
+        .alert(L10n.Donation.copied, isPresented: $showingCopiedAlert) {
+            Button(L10n.Common.ok, role: .cancel) { }
         } message: {
-            Text("Address copied to clipboard")
+            Text(L10n.Donation.copiedMessage)
         }
     }
 }

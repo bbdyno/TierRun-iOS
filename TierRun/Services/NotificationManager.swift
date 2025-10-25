@@ -100,7 +100,7 @@ class NotificationManager {
         ]
         
         let content = UNMutableNotificationContent()
-        content.title = "RunClimb"
+        content.title = "TierRun"
         content.body = motivationalMessages.randomElement() ?? "Time to run!"
         content.sound = .default
         

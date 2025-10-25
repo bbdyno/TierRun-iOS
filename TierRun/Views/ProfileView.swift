@@ -47,7 +47,7 @@ struct ProfileView: View {
                 // Info
                 infoSection
             }
-            .navigationTitle("Profile")
+            .navigationTitle(L10n.Profile.title)
             .onAppear {
                 if viewModel == nil {
                     viewModel = ProfileViewModel(modelContext: modelContext)
@@ -126,7 +126,7 @@ struct ProfileView: View {
                         Text(marathonerTier.tierName)
                             .font(.headline)
                         
-                        Text("Marathoner")
+                        Text(L10n.Role.marathoner)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -142,7 +142,7 @@ struct ProfileView: View {
                         Text(sprinterTier.tierName)
                             .font(.headline)
                         
-                        Text("Sprinter")
+                        Text(L10n.Role.sprinter)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -151,7 +151,7 @@ struct ProfileView: View {
             }
             .padding(.vertical, 8)
         } header: {
-            Text("Tiers")
+            Text(L10n.Profile.tiers)
         }
     }
     
@@ -162,29 +162,26 @@ struct ProfileView: View {
                     StatItem(
                         icon: "figure.run",
                         value: "\(stats.totalRuns)",
-                        label: "Total Runs"
-                    )
-                    
+                        label: L10n.Profile.totalRuns                    )
+
                     Divider()
-                    
+
                     StatItem(
                         icon: "map",
                         value: String(format: "%.1f km", stats.totalDistance),
-                        label: "Total Distance"
-                    )
-                    
+                        label: L10n.Profile.totalDistance                    )
+
                     Divider()
-                    
+
                     StatItem(
                         icon: "star.fill",
                         value: "\(stats.totalLP)",
-                        label: "Total LP"
-                    )
+                        label: L10n.Profile.totalLP                    )
                 }
                 .padding(.vertical, 8)
             }
         } header: {
-            Text("Statistics")
+            Text(L10n.Profile.statistics)
         }
     }
     
@@ -197,7 +194,7 @@ struct ProfileView: View {
                     Image(systemName: "rosette")
                         .foregroundStyle(.blue)
                     
-                    Text("Create Tier Certificate")
+                    Text(L10n.Profile.createCertificate)
                     
                     Spacer()
                     
@@ -207,7 +204,7 @@ struct ProfileView: View {
                 }
             }
         } header: {
-            Text("Certificate")
+            Text(L10n.Profile.certificate)
         }
     }
     
@@ -221,11 +218,11 @@ struct ProfileView: View {
                         .foregroundStyle(.yellow)
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Achievements")
-                        
+                        Text(L10n.Profile.achievements)
+
                         if let unlocked = viewModel?.getUnlockedAchievements().count,
                            let total = viewModel?.achievements.count {
-                            Text("\(unlocked) / \(total) unlocked")
+                            Text(L10n.Profile.achievementsProgress(unlocked, total))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -247,11 +244,11 @@ struct ProfileView: View {
                         .foregroundStyle(.purple)
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Titles")
-                        
+                        Text(L10n.Profile.titles)
+
                         if let unlocked = viewModel?.getUnlockedTitles().count,
                            let total = viewModel?.titles.count {
-                            Text("\(unlocked) / \(total) unlocked")
+                            Text(L10n.Profile.achievementsProgress(unlocked, total))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -265,7 +262,7 @@ struct ProfileView: View {
                 }
             }
         } header: {
-            Text("Progression")
+            Text(L10n.Profile.progression)
         }
     }
     
@@ -276,13 +273,13 @@ struct ProfileView: View {
                     Image(systemName: "heart.fill")
                         .foregroundStyle(.red)
                     
-                    Text("Support Developer")
+                    Text(L10n.Profile.supportDeveloper)
                 }
             }
         } header: {
-            Text("Support")
+            Text(L10n.Profile.support)
         } footer: {
-            Text("RunClimb is free to use. Consider supporting the developer!")
+            Text(L10n.Profile.supportMessage)
         }
     }
     
@@ -295,7 +292,7 @@ struct ProfileView: View {
                     Image(systemName: "gear")
                         .foregroundStyle(.gray)
                     
-                    Text("Settings")
+                    Text(L10n.Profile.settings)
                     
                     Spacer()
                     
@@ -309,9 +306,9 @@ struct ProfileView: View {
     
     private var infoSection: some View {
         Section {
-            Link(destination: URL(string: "https://runclimb.app/terms")!) {
+            Link(destination: URL(string: "https://tierrun.app/terms")!) {
                 HStack {
-                    Text("Terms of Service")
+                    Text(L10n.Profile.termsOfService)
                     Spacer()
                     Image(systemName: "arrow.up.right")
                         .font(.caption)
@@ -319,9 +316,9 @@ struct ProfileView: View {
                 }
             }
             
-            Link(destination: URL(string: "https://runclimb.app/privacy")!) {
+            Link(destination: URL(string: "https://tierrun.app/privacy")!) {
                 HStack {
-                    Text("Privacy Policy")
+                    Text(L10n.Profile.privacyPolicy)
                     Spacer()
                     Image(systemName: "arrow.up.right")
                         .font(.caption)
@@ -330,13 +327,13 @@ struct ProfileView: View {
             }
             
             HStack {
-                Text("Version")
+                Text(L10n.Profile.version)
                 Spacer()
                 Text("1.0.0")
                     .foregroundStyle(.secondary)
             }
         } header: {
-            Text("About")
+            Text(L10n.Profile.about)
         }
     }
 }

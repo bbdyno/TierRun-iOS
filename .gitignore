@@ -67,3 +67,6 @@ fastlane/test_output
 *.xcworkspace
 Derived/
 .DS_Store
+
+# SwiftGen
+TierRun/Generated/

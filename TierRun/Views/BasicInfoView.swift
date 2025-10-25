@@ -33,43 +33,43 @@ struct BasicInfoView: View {
         NavigationStack {
             Form {
                 Section {
-                    TextField("Name", text: $name)
+                    TextField(L10n.BasicInfo.name, text: $name)
                         .textContentType(.name)
                 } header: {
-                    Text("Basic Information")
+                    Text(L10n.BasicInfo.basicInformation)
                 }
                 
                 Section {
-                    Picker("Gender", selection: $selectedGender) {
-                        Text("Male").tag(Gender.male)
-                        Text("Female").tag(Gender.female)
-                        Text("Other").tag(Gender.other)
+                    Picker(L10n.BasicInfo.gender, selection: $selectedGender) {
+                        Text(L10n.BasicInfo.male).tag(Gender.male)
+                        Text(L10n.BasicInfo.female).tag(Gender.female)
+                        Text(L10n.BasicInfo.other).tag(Gender.other)
                     }
-                    
-                    TextField("Age", text: $age)
+
+                    TextField(L10n.BasicInfo.age, text: $age)
                         .keyboardType(.numberPad)
-                    
+
                     HStack {
-                        TextField("Weight", text: $weight)
+                        TextField(L10n.BasicInfo.weight, text: $weight)
                             .keyboardType(.decimalPad)
-                        Text("kg")
+                        Text(L10n.Unit.kg)
                             .foregroundStyle(.secondary)
                     }
                 } header: {
-                    Text("Physical Profile")
+                    Text(L10n.BasicInfo.physicalProfile)
                 } footer: {
-                    Text("This helps us calculate LP fairly based on your profile")
+                    Text(L10n.BasicInfo.profileDescription)
                 }
                 
                 Section {
-                    Picker("Running Experience", selection: $selectedExperience) {
-                        Text("Beginner (< 6 months)").tag(Experience.beginner)
-                        Text("Intermediate (6m - 2y)").tag(Experience.intermediate)
-                        Text("Advanced (2y - 5y)").tag(Experience.advanced)
-                        Text("Elite (5y+)").tag(Experience.elite)
+                    Picker(L10n.BasicInfo.runningExperience, selection: $selectedExperience) {
+                        Text(L10n.BasicInfo.beginner).tag(Experience.beginner)
+                        Text(L10n.BasicInfo.intermediate).tag(Experience.intermediate)
+                        Text(L10n.BasicInfo.advanced).tag(Experience.advanced)
+                        Text(L10n.BasicInfo.elite).tag(Experience.elite)
                     }
                 } header: {
-                    Text("Experience Level")
+                    Text(L10n.BasicInfo.experienceLevel)
                 }
                 
                 Section {
@@ -78,7 +78,7 @@ struct BasicInfoView: View {
                     } label: {
                         HStack {
                             Spacer()
-                            Text("Continue to Placement Test")
+                            Text(L10n.BasicInfo.continue)
                                 .fontWeight(.semibold)
                             Spacer()
                         }
@@ -86,9 +86,9 @@ struct BasicInfoView: View {
                     .disabled(!isFormValid)
                 }
             }
-            .navigationTitle("About You")
-            .alert("Error", isPresented: $showingError) {
-                Button("OK", role: .cancel) { }
+            .navigationTitle(L10n.BasicInfo.title)
+            .alert(L10n.Common.error, isPresented: $showingError) {
+                Button(L10n.Common.ok, role: .cancel) { }
             } message: {
                 Text(errorMessage)
             }
@@ -98,8 +98,7 @@ struct BasicInfoView: View {
     private func saveAndContinue() {
         guard let ageInt = Int(age),
               let weightDouble = Double(weight) else {
-            errorMessage = "Please enter valid age and weight"
-            showingError = true
+            errorMessage = L10n.BasicInfo.invalidInput            showingError = true
             return
         }
         
@@ -131,7 +130,7 @@ struct BasicInfoView: View {
             try modelContext.save()
             onContinue()
         } catch {
-            errorMessage = "Failed to save data: \(error.localizedDescription)"
+            errorMessage = "Failed to save data: \(errorDescription)"
             showingError = true
         }
     }

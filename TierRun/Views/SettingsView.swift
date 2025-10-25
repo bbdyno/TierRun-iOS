@@ -20,61 +20,61 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section {
-                    Toggle("Metric Units (km)", isOn: $useMetric)
+                    Toggle(L10n.Settings.metricUnits, isOn: $useMetric)
                 } header: {
-                    Text("Units")
+                    Text(L10n.Settings.units)
                 } footer: {
-                    Text(useMetric ? "Distance will be shown in kilometers" : "Distance will be shown in miles")
+                    Text(useMetric ? L10n.Settings.metricDescription : L10n.Settings.imperialDescription)
                 }
                 
                 Section {
-                    Picker("Language", selection: $language) {
-                        Text("English").tag("en")
-                        Text("한국어").tag("ko")
-                        Text("日本語").tag("ja")
+                    Picker(L10n.Settings.localization, selection: $language) {
+                        Text(L10n.Settings.english).tag("en")
+                        Text(L10n.Settings.korean).tag("ko")
+                        Text(L10n.Settings.japanese).tag("ja")
                     }
                 } header: {
-                    Text("Localization")
+                    Text(L10n.Settings.localization)
                 }
                 
                 Section {
-                    Toggle("Enable Notifications", isOn: $notificationsEnabled)
-                    Toggle("Auto Sync HealthKit", isOn: $autoSync)
+                    Toggle(L10n.Settings.enableNotifications, isOn: $notificationsEnabled)
+                    Toggle(L10n.Settings.autoSyncHealthKit, isOn: $autoSync)
                 } header: {
-                    Text("App Behavior")
+                    Text(L10n.Settings.appBehavior)
                 } footer: {
-                    Text("Auto sync will check for new workouts daily")
+                    Text(L10n.Settings.autoSyncDescription)
                 }
                 
                 Section {
-                    NavigationLink("HealthKit Permissions") {
+                    NavigationLink(L10n.Settings.healthKitPermissions) {
                         HealthKitPermissionsView()
                     }
                 } header: {
-                    Text("HealthKit")
+                    Text(L10n.Settings.healthKit)
                 }
                 
                 Section {
-                    Button("Export All Data") {
+                    Button(L10n.Settings.exportData) {
                         exportData()
                     }
-                    
-                    Button("Reset Placement Test", role: .destructive) {
+
+                    Button(L10n.Settings.resetPlacementTest, role: .destructive) {
                         resetPlacementTest()
                     }
-                    
-                    Button("Delete All Data", role: .destructive) {
+
+                    Button(L10n.Settings.deleteAllData, role: .destructive) {
                         deleteAllData()
                     }
                 } header: {
-                    Text("Data Management")
+                    Text(L10n.Settings.dataManagement)
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle(L10n.Settings.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") {
+                    Button(L10n.Common.done) {
                         dismiss()
                     }
                 }
@@ -108,40 +108,40 @@ struct HealthKitPermissionsView: View {
         List {
             Section {
                 HStack {
-                    Text("Workout Data")
+                    Text(L10n.Settings.workoutData)
                     Spacer()
                     Image(systemName: hasWorkoutPermission ? "checkmark.circle.fill" : "xmark.circle.fill")
                         .foregroundStyle(hasWorkoutPermission ? .green : .red)
                 }
-                
+
                 HStack {
-                    Text("Heart Rate")
+                    Text(L10n.Settings.heartRate)
                     Spacer()
                     Image(systemName: hasHeartRatePermission ? "checkmark.circle.fill" : "xmark.circle.fill")
                         .foregroundStyle(hasHeartRatePermission ? .green : .red)
                 }
-                
+
                 HStack {
-                    Text("Sleep Analysis")
+                    Text(L10n.Settings.sleepAnalysis)
                     Spacer()
                     Image(systemName: hasSleepPermission ? "checkmark.circle.fill" : "xmark.circle.fill")
                         .foregroundStyle(hasSleepPermission ? .green : .red)
                 }
             } header: {
-                Text("Permissions Status")
+                Text(L10n.Settings.permissionsStatus)
             }
             
             Section {
-                Button("Open Health App") {
+                Button(L10n.Settings.openHealthApp) {
                     if let url = URL(string: "x-apple-health://") {
                         UIApplication.shared.open(url)
                     }
                 }
             } footer: {
-                Text("You can manage HealthKit permissions in the Health app under Sources.")
+                Text(L10n.Settings.healthAppMessage)
             }
         }
-        .navigationTitle("HealthKit")
+        .navigationTitle(L10n.Settings.healthKit)
         .onAppear {
             checkPermissions()
         }

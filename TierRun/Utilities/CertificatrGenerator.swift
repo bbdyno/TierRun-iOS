@@ -313,7 +313,7 @@ class CertificateGenerator {
     }
     
     private func drawBranding(ctx: CGContext, size: CGSize) {
-        let brandText = "RunClimb"
+        let brandText = "TierRun"
         
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 32, weight: .bold),
@@ -335,7 +335,7 @@ class CertificateGenerator {
     
     private func drawQRCode(ctx: CGContext, size: CGSize, tier: Tier) {
         // Generate QR code with tier verification data
-        let qrData = "runclimb://verify/\(tier.id.uuidString)"
+        let qrData = "tierrun://verify/\(tier.id.uuidString)"
         
         if let qrImage = generateQRCode(from: qrData) {
             let qrSize: CGFloat = 150

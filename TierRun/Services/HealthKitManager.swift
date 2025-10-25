@@ -150,7 +150,7 @@ class HealthKitManager {
             route: route,
             elevationGain: elevation,
             cadence: cadence,
-            sourceApp: sourceApp != "RunClimb" ? sourceApp : nil
+            sourceApp: sourceApp != "TierRun" ? sourceApp : nil
         )
     }
     

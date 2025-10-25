@@ -28,14 +28,14 @@ struct ActivityListView: View {
                                 Button(role: .destructive) {
                                     vm.deleteRun(run)
                                 } label: {
-                                    Label("Delete", systemImage: "trash")
+                                    Label(L10n.Common.delete, systemImage: "trash")
                                 }
-                                
+
                                 Button {
                                     let newRole: RunRole = run.role == .marathoner ? .sprinter : .marathoner
                                     vm.reclassifyRun(run, to: newRole)
                                 } label: {
-                                    Label("Reclassify", systemImage: "arrow.triangle.2.circlepath")
+                                    Label(L10n.Activity.reclassify, systemImage: "arrow.triangle.2.circlepath")
                                 }
                                 .tint(.orange)
                             }
@@ -44,13 +44,13 @@ struct ActivityListView: View {
                     .listStyle(.insetGrouped)
                 } else {
                     ContentUnavailableView(
-                        "No Activities",
+                        L10n.Activity.noActivities,
                         systemImage: "figure.run",
-                        description: Text("Your running activities from HealthKit will appear here")
+                        description: Text(L10n.Activity.NoActivities.description)
                     )
                 }
             }
-            .navigationTitle("Activity")
+            .navigationTitle(L10n.Activity.title)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {

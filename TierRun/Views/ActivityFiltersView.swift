@@ -16,45 +16,45 @@ struct ActivityFiltersView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Role") {
-                    Picker("Filter", selection: $viewModel.selectedFilter) {
+                Section(L10n.Filter.role) {
+                    Picker(L10n.Filter.title, selection: $viewModel.selectedFilter) {
                         ForEach(RunFilter.allCases, id: \.self) { filter in
                             Text(filter.rawValue).tag(filter)
                         }
                     }
                     .pickerStyle(.segmented)
                 }
-                
-                Section("Period") {
-                    Picker("Period", selection: $viewModel.selectedPeriod) {
+
+                Section(L10n.Filter.period) {
+                    Picker(L10n.Filter.period, selection: $viewModel.selectedPeriod) {
                         ForEach(TimePeriod.allCases, id: \.self) { period in
                             Text(period.rawValue).tag(period)
                         }
                     }
                 }
-                
-                Section("Sort By") {
-                    Picker("Sort", selection: $viewModel.sortOrder) {
+
+                Section(L10n.Filter.sortBy) {
+                    Picker(L10n.Filter.sort, selection: $viewModel.sortOrder) {
                         ForEach(SortOrder.allCases, id: \.self) { order in
                             Text(order.rawValue).tag(order)
                         }
                     }
                 }
             }
-            .navigationTitle("Filters")
+            .navigationTitle(L10n.Filter.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Reset") {
+                    Button(L10n.Common.reset) {
                         viewModel.selectedFilter = .all
                         viewModel.selectedPeriod = .all
                         viewModel.sortOrder = .dateDescending
                         viewModel.applyFilters()
                     }
                 }
-                
+
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") {
+                    Button(L10n.Common.done) {
                         viewModel.applyFilters()
                         dismiss()
                     }
